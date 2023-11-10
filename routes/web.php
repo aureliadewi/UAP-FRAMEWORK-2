@@ -16,6 +16,10 @@ Route::prefix('/mahasiswa')->group(function () {
 });
 });
 
+Route::get('/', function () {
+    return view('mahasiswa');
+});
+
 
 
 
