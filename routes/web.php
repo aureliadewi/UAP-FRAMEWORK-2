@@ -1,5 +1,9 @@
 <?php
+
+use App\Http\Controllers\DatamahasiswaController;
 use Illuminate\Support\Facades\Route;
+use App\HTTP\Controllers\KRSController;
+use App\Models\Datamahasiswa;
 
 Route::prefix('/mahasiswa')->group(function () {
     Route::get('/pendaftaran', function () {
@@ -19,6 +23,11 @@ Route::prefix('/mahasiswa')->group(function () {
 Route::get('/', function () {
     return view('mahasiswa');
 });
+Route::get('/viewkrs', [KRSController::class, 'index']);
+Route::get('/datamahasiswa', [DatamahasiswaController::class, 'index'])->name('mahasiswa.index');
+Route::get('/datamahasiswa/{nim}/krs', [DatamahasiswaController::class, 'showKrs'])->name('mahasiswa.krs');
+
+
 
 
 
